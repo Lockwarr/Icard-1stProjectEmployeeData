@@ -12,8 +12,7 @@ arrows just like windows explorer!
 
 #include "stdafx.h"
 #include "SortListCtrl.h"
-#include "Structures.h"
-#include "FilterDialog.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -40,7 +39,6 @@ CSortListCtrl::~CSortListCtrl()
 BEGIN_MESSAGE_MAP(CSortListCtrl, CListCtrl)
 	ON_NOTIFY_REFLECT(LVN_COLUMNCLICK, OnColumnClick)
 
-
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -52,13 +50,14 @@ void CSortListCtrl::PreSubclassWindow()
 	// the list control must have the report style.
 }
 
+
 int CALLBACK CSortListCtrl::CompareFunction(LPARAM lParam1, LPARAM lParam2, LPARAM lParamData)
 {
 	CSortListCtrl* pListCtrl = reinterpret_cast<CSortListCtrl*>(lParamData);
 	ASSERT(pListCtrl->IsKindOf(RUNTIME_CLASS(CListCtrl)));
 
-	CEmployeeData* pid1 = reinterpret_cast<CEmployeeData*>(lParam1);
-	CEmployeeData* pid2 = reinterpret_cast<CEmployeeData*>(lParam2);
+	EMPLOYEE_DATA* pid1 = reinterpret_cast<EMPLOYEE_DATA*>(lParam1);
+	EMPLOYEE_DATA* pid2 = reinterpret_cast<EMPLOYEE_DATA*>(lParam2);
 
 	ASSERT(pid1);
 	ASSERT(pid2);
@@ -115,10 +114,10 @@ void CSortListCtrl::OnColumnClick(NMHDR* pNMHDR, LRESULT* pResult)
 }
 
 
-void CSortListCtrl::Sort(int iColumn, BOOL bAscending)
+void CSortListCtrl::Sort(int iColumn, BOOL bSortAscending)
 {
 	m_iSortColumn = iColumn;
-	m_bSortAscending = bAscending;
+	m_bSortAscending = bSortAscending;
 
 	VERIFY(SortItems(CompareFunction, reinterpret_cast<DWORD>(this)));
 }

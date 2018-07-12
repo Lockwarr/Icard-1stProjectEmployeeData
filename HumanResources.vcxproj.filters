@@ -51,9 +51,6 @@
     <ClInclude Include="FilterDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EnumFileMode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SortListCtrl.h">
       <Filter>Header Files</Filter>
     </ClInclude>

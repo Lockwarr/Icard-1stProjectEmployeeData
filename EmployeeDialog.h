@@ -10,7 +10,7 @@ class CEmployeeDialog : public CDialogEx
 	enum { IDD = IDD_EMPLOYEE_SEARCH};
 
 public:
-	CEmployeeDialog(CEmployeeData & oEmployee, DialogMode eMode);
+	CEmployeeDialog(EMPLOYEE_DATA & oEmployee, DialogMode eMode);
 	~CEmployeeDialog();
 
 public:
@@ -19,6 +19,9 @@ public:
 	DECLARE_MESSAGE_MAP()
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual void OnOK();
+	BOOL AreEmptyBoxesLeft();
+	BOOL ValidatePIN();
+	BOOL ValidateDate();
 	virtual BOOL OnInitDialog();
 
 	CString m_strFirstName;
@@ -38,9 +41,9 @@ public:
 	CEdit m_EdbPIN;
 	CEdit m_EdbDate;
 
-	CEmployeeData & m_oEmployee;
+	EMPLOYEE_DATA & m_oEmployee;
 
-	std::vector<CEmployeeData>  m_EmployeesData;
+	std::vector<EMPLOYEE_DATA>  m_EmployeesData;
 
 	DialogMode m_eMode;
 

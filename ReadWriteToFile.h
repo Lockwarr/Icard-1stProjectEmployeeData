@@ -1,22 +1,25 @@
 #pragma once
 #include "Structures.h"
-#include "EnumFileMode.h"
-#include <vector>
 
+#include <fstream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <stdio.h>
 
 class ReadWriteToFile
 {
 public:
 	ReadWriteToFile();
-	BOOL WriteToFile(const CEmployeeData & oEmployee);
-	BOOL FillFilteredFile(std::vector<CEmployeeData> employeesData);
-	void GetDataFromFile(std::vector<CEmployeeData>& employeesData, FileMode eMode);
-	void ReWriteFile(std::vector<CEmployeeData> employeesData);
-	void SaveDataForUndo(const CEmployeeData & oEmployee);
-	std::string GetLastLineFromUndoData();
+	BOOL WriteToFile(const EMPLOYEE_DATA & oEmployee);
+	BOOL GetDataFromFile(std::vector<EMPLOYEE_DATA>& employeesData);
+	void ReWriteFile(std::vector<EMPLOYEE_DATA> employeesData);
 
-	//void AddLastDeletedItem();
+	BOOL GetDataAndDeleteEmployee(std::vector<EMPLOYEE_DATA>& employeeData, CString& employeePIN);
 
-	void DeleteLastAddedItem();
+	BOOL GetDataAndEditEmployee(std::vector<EMPLOYEE_DATA>& employeeData, CString & employeePIN);
+
+	BOOL RemoveAll();
+
 
 };

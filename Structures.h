@@ -1,11 +1,13 @@
 #pragma once
 
-class CEmployeeData
+enum FilterMode
 {
-public:
-	CEmployeeData() {}
+	eFilterMode_ByName,
+	eFilterMode_ByDate
+};
 
-public:
+struct EMPLOYEE_DATA
+{
 
 	CString strFirstName;
 	CString strSurname;

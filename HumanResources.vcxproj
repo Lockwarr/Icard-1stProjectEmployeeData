@@ -185,7 +185,6 @@
   <ItemGroup>
     <ClInclude Include="EmployeeDialog.h" />
     <ClInclude Include="EnumDialogMode.h" />
-    <ClInclude Include="EnumFileMode.h" />
     <ClInclude Include="FilterDialog.h" />
     <ClInclude Include="HumanResources.h" />
     <ClInclude Include="HumanResourcesDoc.h" />
